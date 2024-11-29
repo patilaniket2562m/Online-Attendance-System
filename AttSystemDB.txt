@@ -1,0 +1,1232 @@
+USE [AttSystem]
+GO
+/****** Object:  Table [dbo].[Complainmst]    Script Date: 08/25/2019 11:50:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Complainmst](
+	[CID] [int] IDENTITY(1,1) NOT NULL,
+	[Rollno] [nvarchar](50) NULL,
+	[Name] [nvarchar](50) NULL,
+	[Subject] [nvarchar](50) NULL,
+	[Message] [nvarchar](500) NULL,
+	[Reply] [nvarchar](500) NULL,
+	[Edate] [datetime] NULL,
+ CONSTRAINT [PK_Complainmst] PRIMARY KEY CLUSTERED 
+(
+	[CID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Attendancemst]    Script Date: 08/25/2019 11:50:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Attendancemst](
+	[AID] [int] IDENTITY(1,1) NOT NULL,
+	[Rollno] [nvarchar](50) NULL,
+	[Name] [nvarchar](50) NULL,
+	[Date] [nvarchar](500) NULL,
+	[Status] [nvarchar](50) NULL,
+	[StaffName] [nvarchar](50) NULL,
+	[EDate] [datetime] NULL,
+ CONSTRAINT [PK_Attendancemst] PRIMARY KEY CLUSTERED 
+(
+	[AID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[DivMst]    Script Date: 08/25/2019 11:50:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[DivMst](
+	[DID] [int] IDENTITY(1,1) NOT NULL,
+	[DivName] [char](1) NULL,
+	[StdName] [nvarchar](50) NULL,
+	[Seat] [int] NULL,
+	[EDate] [datetime] NULL,
+ CONSTRAINT [PK_DivMst] PRIMARY KEY CLUSTERED 
+(
+	[DID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[FeedBackMst]    Script Date: 08/25/2019 11:50:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[FeedBackMst](
+	[FID] [int] IDENTITY(1,1) NOT NULL,
+	[Email] [nvarchar](50) NULL,
+	[Mobile] [nvarchar](50) NULL,
+	[Feedback] [nvarchar](500) NULL,
+	[Edate] [datetime] NULL,
+ CONSTRAINT [PK_FeedBackMst] PRIMARY KEY CLUSTERED 
+(
+	[FID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[LeaveMst]    Script Date: 08/25/2019 11:50:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[LeaveMst](
+	[LID] [int] IDENTITY(1,1) NOT NULL,
+	[Rollno] [nvarchar](50) NULL,
+	[Name] [nvarchar](50) NULL,
+	[StdName] [nvarchar](50) NULL,
+	[Message] [nvarchar](500) NULL,
+	[Nodays] [int] NULL,
+	[Reply] [nvarchar](500) NULL,
+	[Edate] [datetime] NULL,
+ CONSTRAINT [PK_LeaveMstt] PRIMARY KEY CLUSTERED 
+(
+	[LID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[StaffMst]    Script Date: 08/25/2019 11:50:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[StaffMst](
+	[SID] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](50) NULL,
+	[StdName] [nvarchar](50) NULL,
+	[Email] [nvarchar](50) NULL,
+	[Mobile] [nvarchar](50) NULL,
+	[Image] [nvarchar](50) NULL,
+	[Qualification] [nvarchar](50) NULL,
+	[Add] [nvarchar](50) NULL,
+	[City] [nvarchar](50) NULL,
+	[Pincode] [nvarchar](50) NULL,
+	[Uname] [nvarchar](50) NULL,
+	[Pass] [nvarchar](50) NULL,
+	[Gender] [nvarchar](50) NULL,
+	[Edate] [datetime] NULL,
+ CONSTRAINT [PK_StaffMst] PRIMARY KEY CLUSTERED 
+(
+	[SID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[StdMst]    Script Date: 08/25/2019 11:50:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[StdMst](
+	[SID] [int] IDENTITY(1,1) NOT NULL,
+	[StdName] [nvarchar](50) NULL,
+	[EDate] [datetime] NULL,
+ CONSTRAINT [PK_StdMst] PRIMARY KEY CLUSTERED 
+(
+	[SID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[StudentMst]    Script Date: 08/25/2019 11:50:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[StudentMst](
+	[SID] [int] IDENTITY(1,1) NOT NULL,
+	[RollNo] [nvarchar](50) NULL,
+	[Name] [nvarchar](max) NOT NULL,
+	[StdName] [nvarchar](50) NULL,
+	[DivName] [nvarchar](50) NULL,
+	[Email] [nvarchar](50) NULL,
+	[Mobile] [nvarchar](50) NULL,
+	[DOB] [nvarchar](50) NULL,
+	[Image] [nvarchar](50) NULL,
+	[Add] [nvarchar](50) NULL,
+	[City] [nvarchar](50) NULL,
+	[Pincode] [nvarchar](50) NULL,
+	[Uname] [nvarchar](50) NULL,
+	[Pass] [nvarchar](50) NULL,
+	[EDate] [datetime] NULL,
+ CONSTRAINT [PK_StudentMst] PRIMARY KEY CLUSTERED 
+(
+	[SID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  StoredProcedure [dbo].[StudentMst_UPDATE]    Script Date: 08/25/2019 11:50:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[StudentMst_UPDATE]
+	
+	@SID AS int,			
+	@email AS NVARCHAR(256),
+	@mobile AS NVARCHAR(256),	
+	@image AS NVARCHAR(256),
+	@add AS NVARCHAR(256),
+	@city AS NVARCHAR(256),
+	@pincode AS NVARCHAR(256)
+AS
+BEGIN
+	
+UPDATE StudentMst SET Email=@email,Mobile=@mobile,Image=@image,[Add]=@add,City=@city,Pincode=@pincode WHERE SID=@SID
+	
+	
+END
+GO
+/****** Object:  StoredProcedure [dbo].[StudentMst_SELECT_STD_DIV]    Script Date: 08/25/2019 11:50:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create PROCEDURE [dbo].[StudentMst_SELECT_STD_DIV]
+@std as nvarchar(256),
+@div as nvarchar(256)	
+AS
+BEGIN
+	
+	SELECT * FROM StudentMst where StdName=@std and DivName=@div
+	
+	
+END
+GO
+/****** Object:  StoredProcedure [dbo].[StudentMst_SELECT_login]    Script Date: 08/25/2019 11:50:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create PROCEDURE [dbo].[StudentMst_SELECT_login]
+		@uname as nvarchar(256),
+	@pass as nvarchar(256)
+AS
+BEGIN
+	
+	SELECT * FROM StudentMst where Uname=@uname and Pass=@pass
+	
+	
+END
+GO
+/****** Object:  StoredProcedure [dbo].[StudentMST_SELECT_check_current_pass]    Script Date: 08/25/2019 11:50:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create PROCEDURE [dbo].[StudentMST_SELECT_check_current_pass]
+	
+	@pass as nvarchar(256),
+	@uname as nvarchar(256)
+	
+AS
+BEGIN
+	
+	select * from StudentMst where Pass=@pass and Uname=@uname
+	
+	
+END
+GO
+/****** Object:  StoredProcedure [dbo].[StudentMST_SELECT_ChangePass]    Script Date: 08/25/2019 11:50:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create PROCEDURE [dbo].[StudentMST_SELECT_ChangePass]
+	
+	@pass as nvarchar(256),
+	@uname as nvarchar(256)
+	
+AS
+BEGIN
+	
+	update StudentMst set Pass=@pass where Uname=@uname
+	
+	
+END
+GO
+/****** Object:  StoredProcedure [dbo].[StudentMst_SELECT_BYID]    Script Date: 08/25/2019 11:50:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+Create PROCEDURE [dbo].[StudentMst_SELECT_BYID]
+	
+	@SID AS INT
+AS
+BEGIN
+	
+	SELECT * FROM StudentMst WHERE SID=@SID
+	
+	
+END
+GO
+/****** Object:  StoredProcedure [dbo].[StudentMst_SELECT_by_uname]    Script Date: 08/25/2019 11:50:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create PROCEDURE [dbo].[StudentMst_SELECT_by_uname]
+		@uname as nvarchar(256)
+	 
+AS
+BEGIN
+	
+	SELECT * FROM StudentMst where Uname=@uname 
+	
+	
+END
+GO
+/****** Object:  StoredProcedure [dbo].[StudentMst_SELECT_by_email]    Script Date: 08/25/2019 11:50:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create PROCEDURE [dbo].[StudentMst_SELECT_by_email]
+		@email as nvarchar(256)
+	 
+AS
+BEGIN
+	
+	SELECT * FROM StudentMst where Email=@email
+	
+	
+END
+GO
+/****** Object:  StoredProcedure [dbo].[StudentMst_SELECT]    Script Date: 08/25/2019 11:50:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+Create PROCEDURE [dbo].[StudentMst_SELECT]
+	
+AS
+BEGIN
+	
+	SELECT * FROM StudentMst
+	
+	
+END
+GO
+/****** Object:  StoredProcedure [dbo].[StudentMst_INSERT]    Script Date: 08/25/2019 11:50:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[StudentMst_INSERT]
+	
+	@ROLLNO AS NVARCHAR(256),
+	@NAME  AS NVARCHAR(256),
+	@STDNAME  AS NVARCHAR(256),
+	@DIVNAME  AS NVARCHAR(256),
+	@EMAIL  AS NVARCHAR(256),
+	@MOBILE AS NVARCHAR(256),
+	@DOB AS nvarchar(500),
+	@IMG  AS NVARCHAR(256),
+	@ADD AS NVARCHAR(256),
+	@CITY AS NVARCHAR(256),
+	@PIN AS NVARCHAR(256),
+	@UNAME AS NVARCHAR(256),
+	@PASS AS NVARCHAR(256)
+AS
+BEGIN
+	
+	INSERT INTO StudentMst VALUES(@ROLLNO,@NAME,@STDNAME,@DIVNAME,@EMAIL,@MOBILE,@DOB,@IMG,@ADD,@CITY,@PIN,@UNAME,@PASS,GETDATE())
+	
+	
+END
+GO
+/****** Object:  StoredProcedure [dbo].[StudentMst_DELETE]    Script Date: 08/25/2019 11:50:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+Create PROCEDURE [dbo].[StudentMst_DELETE]
+	
+	@SID AS INT
+AS
+BEGIN
+	
+DELETE FROM StudentMst WHERE SID=@SID
+	
+	
+END
+GO
+/****** Object:  StoredProcedure [dbo].[STDMST_UPDATE]    Script Date: 08/25/2019 11:50:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[STDMST_UPDATE]
+	
+	@SID AS INT,
+	@SNAME AS NVARCHAR(256)
+AS
+BEGIN
+	
+UPDATE StdMst SET StdName=@SNAME, EDate=GETDATE() WHERE SID=@SID
+	
+	
+END
+GO
+/****** Object:  StoredProcedure [dbo].[STDMST_SELECT_BYID]    Script Date: 08/25/2019 11:50:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[STDMST_SELECT_BYID]
+	
+	@ID AS INT
+AS
+BEGIN
+	
+	SELECT * FROM StdMst WHERE SID=@ID
+	
+	
+END
+GO
+/****** Object:  StoredProcedure [dbo].[STDMST_SELECT]    Script Date: 08/25/2019 11:50:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[STDMST_SELECT]
+	
+AS
+BEGIN
+	
+	SELECT * FROM StdMst
+	
+	
+END
+GO
+/****** Object:  StoredProcedure [dbo].[STDMST_INSERT]    Script Date: 08/25/2019 11:50:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[STDMST_INSERT]
+	
+	@STDNAME AS NVARCHAR(256)
+AS
+BEGIN
+	
+	INSERT INTO StdMst VALUES(@STDNAME,GETDATE())
+	
+	
+END
+GO
+/****** Object:  StoredProcedure [dbo].[STDMST_DELETE]    Script Date: 08/25/2019 11:50:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[STDMST_DELETE]
+	
+	@SID AS INT
+AS
+BEGIN
+	
+DELETE FROM StdMst WHERE SID=@SID
+	
+	
+END
+GO
+/****** Object:  StoredProcedure [dbo].[StaffMst_UPDATE]    Script Date: 08/25/2019 11:50:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[StaffMst_UPDATE]
+	
+	@SID AS INT,	
+	@email as nvarchar(256),
+	@mobile as nvarchar(256),
+	@image as nvarchar(256),
+	@add as nvarchar(256),
+	@city as nvarchar(256),
+	@pincode as nvarchar(256)
+	
+	
+AS
+BEGIN
+	
+UPDATE StaffMst SET Email=@email,Mobile=@mobile,Image=@image,[Add]=@add,City=@city,Pincode=@pincode WHERE SID=@SID
+	
+	
+END
+GO
+/****** Object:  StoredProcedure [dbo].[StaffMST_SELECT_login]    Script Date: 08/25/2019 11:50:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create PROCEDURE [dbo].[StaffMST_SELECT_login]
+	@uname as nvarchar(256),
+	@pass as nvarchar(256)
+AS
+BEGIN
+	
+	SELECT * FROM StaffMst where Uname=@uname and Pass=@pass
+	
+	
+END
+GO
+/****** Object:  StoredProcedure [dbo].[StaffMST_SELECT_check_current_pass]    Script Date: 08/25/2019 11:50:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create PROCEDURE [dbo].[StaffMST_SELECT_check_current_pass]
+	
+	@pass as nvarchar(256),
+	@uname as nvarchar(256)
+	
+AS
+BEGIN
+	
+	select * from StaffMst where Pass=@pass and Uname=@uname
+	
+	
+END
+GO
+/****** Object:  StoredProcedure [dbo].[StaffMST_SELECT_ChangePass]    Script Date: 08/25/2019 11:50:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create PROCEDURE [dbo].[StaffMST_SELECT_ChangePass]
+	
+	@pass as nvarchar(256),
+	@uname as nvarchar(256)
+	
+AS
+BEGIN
+	
+	update StaffMst set Pass=@pass where Uname=@uname
+	
+	
+END
+GO
+/****** Object:  StoredProcedure [dbo].[StaffMst_SELECT_BYID]    Script Date: 08/25/2019 11:50:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+Create PROCEDURE [dbo].[StaffMst_SELECT_BYID]
+	
+	@SID AS INT
+AS
+BEGIN
+	
+	SELECT * FROM StaffMst WHERE SID=@SID
+	
+	
+END
+GO
+/****** Object:  StoredProcedure [dbo].[StaffMST_SELECT_by_uname]    Script Date: 08/25/2019 11:50:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create PROCEDURE [dbo].[StaffMST_SELECT_by_uname]
+	@uname as nvarchar(256)
+	
+AS
+BEGIN
+	
+	SELECT * FROM StaffMst where Uname=@uname 
+	
+	
+END
+GO
+/****** Object:  StoredProcedure [dbo].[StaffMST_SELECT_by_emial]    Script Date: 08/25/2019 11:50:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create PROCEDURE [dbo].[StaffMST_SELECT_by_emial]
+	@email as nvarchar(256)
+	
+AS
+BEGIN
+	
+	SELECT * FROM StaffMst where Email=@email
+	
+END
+GO
+/****** Object:  StoredProcedure [dbo].[StaffMST_SELECT]    Script Date: 08/25/2019 11:50:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+Create PROCEDURE [dbo].[StaffMST_SELECT]
+	
+AS
+BEGIN
+	
+	SELECT * FROM StaffMst
+	
+	
+END
+GO
+/****** Object:  StoredProcedure [dbo].[staffmst_INSERT]    Script Date: 08/25/2019 11:50:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[staffmst_INSERT]
+	
+	@name as nvarchar(256),
+	@stdname as nvarchar(256),
+	@email as nvarchar(256),
+	@mobile as nvarchar(256),
+	@image as nvarchar(256),
+	@qualification as nvarchar(256),
+	@add as nvarchar(256),
+	@city as nvarchar(256),
+	@pincode as nvarchar(256),
+	@uname as nvarchar(256),
+	@pass as nvarchar(256),
+	@gender as nvarchar(256)
+	
+
+	
+	
+	
+AS
+BEGIN
+	
+	INSERT INTO StaffMst VALUES(@name,@stdname,@email,@mobile,@image,@qualification,@add,@city,@pincode,@uname,@pass,@gender,GETDATE())
+	
+	
+END
+GO
+/****** Object:  StoredProcedure [dbo].[StaffMst_DELETE]    Script Date: 08/25/2019 11:50:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+Create PROCEDURE [dbo].[StaffMst_DELETE]
+	
+	@SID AS INT
+AS
+BEGIN
+	
+DELETE FROM StaffMst WHERE SID=@SID
+	
+	
+END
+GO
+/****** Object:  StoredProcedure [dbo].[LeaveMst_UPDATE_STATU]    Script Date: 08/25/2019 11:50:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create PROCEDURE [dbo].[LeaveMst_UPDATE_STATU]
+	
+	@LID AS INT,	
+	@replay as nvarchar(256)
+AS
+BEGIN
+	
+UPDATE Leavemst SET Reply=@replay, EDate=GETDATE() WHERE LId=@LID
+	
+	
+END
+GO
+/****** Object:  StoredProcedure [dbo].[Leavemst_SELECT_STD_STATUS]    Script Date: 08/25/2019 11:50:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create PROCEDURE [dbo].[Leavemst_SELECT_STD_STATUS]
+	@std as nvarchar(256),
+	@status as nvarchar(256)
+AS
+BEGIN
+	
+	SELECT * FROM Leavemst where Stdname=@std and Reply=@status
+	
+	
+END
+GO
+/****** Object:  StoredProcedure [dbo].[Leavemst_SELECT_STD]    Script Date: 08/25/2019 11:50:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create PROCEDURE [dbo].[Leavemst_SELECT_STD]
+	@std as nvarchar(256)
+AS
+BEGIN
+	
+	SELECT * FROM Leavemst where Stdname=@std
+	
+	
+END
+GO
+/****** Object:  StoredProcedure [dbo].[Leavemst_SELECT_rollno]    Script Date: 08/25/2019 11:50:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[Leavemst_SELECT_rollno]
+	@rno as nvarchar(256)
+AS
+BEGIN
+	
+	SELECT * FROM Leavemst where Rollno=@rno
+	
+	
+END
+GO
+/****** Object:  StoredProcedure [dbo].[Leavemst_SELECT_BYID]    Script Date: 08/25/2019 11:50:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+Create PROCEDURE [dbo].[Leavemst_SELECT_BYID]
+	
+	@LID AS INT
+AS
+BEGIN
+	
+	SELECT * FROM Leavemst WHERE LID=@LID
+	
+	
+END
+GO
+/****** Object:  StoredProcedure [dbo].[Leavemst_SELECT]    Script Date: 08/25/2019 11:50:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create PROCEDURE [dbo].[Leavemst_SELECT]
+	
+AS
+BEGIN
+	
+	SELECT * FROM Leavemst
+	
+	
+END
+GO
+/****** Object:  StoredProcedure [dbo].[Leavemst_INSERT]    Script Date: 08/25/2019 11:50:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[Leavemst_INSERT]
+	
+	@rollno AS NVARCHAR(256),
+	@name AS NVARCHAR(256),
+	@stdname AS nvarchar(256),
+	@message AS nvarchar(256),	
+	@nodays as int,
+	@replay AS nvarchar(256)
+AS
+BEGIN
+	
+	INSERT INTO Leavemst VALUES(@rollno,@name,@stdname,@message,@nodays,@replay,GETDATE())
+	
+	
+END
+GO
+/****** Object:  StoredProcedure [dbo].[Leavemst_DELETE]    Script Date: 08/25/2019 11:50:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+Create PROCEDURE [dbo].[Leavemst_DELETE]
+	
+	@LID AS INT
+AS
+BEGIN
+	
+DELETE FROM Leavemst WHERE LID=@LID
+	
+	
+END
+GO
+/****** Object:  StoredProcedure [dbo].[FeedBackMst_SELECT]    Script Date: 08/25/2019 11:50:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[FeedBackMst_SELECT]
+	
+AS
+BEGIN
+	
+	SELECT * FROM FeedBackMst
+	
+	
+END
+GO
+/****** Object:  StoredProcedure [dbo].[FeedBackMst_INSERT]    Script Date: 08/25/2019 11:50:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[FeedBackMst_INSERT]
+	
+	@EMAIL AS NVARCHAR(256),
+	@MOB AS NVARCHAR(256),
+	@FEED AS NVARCHAR(256)
+AS
+BEGIN
+	
+INSERT INTO FeedBackMst VALUES (@EMAIL,@MOB,@FEED,GETDATE())
+	
+	
+END
+GO
+/****** Object:  StoredProcedure [dbo].[FeedBackMst_DELETE]    Script Date: 08/25/2019 11:50:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[FeedBackMst_DELETE]
+	
+@FID AS  INT
+AS
+BEGIN
+	
+DELETE FROM FeedBackMst WHERE FID=@FID
+	
+	
+END
+GO
+/****** Object:  StoredProcedure [dbo].[DIVMST_UPDATE]    Script Date: 08/25/2019 11:50:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[DIVMST_UPDATE]
+	
+	@DID AS INT,
+	@DIVNAME AS NVARCHAR(256),
+	@STDNAME AS NVARCHAR(256),
+	@SEAT AS INT
+AS
+BEGIN
+	
+UPDATE DivMst SET StdName=@STDNAME,DIVNAME=@DIVNAME,Seat=@SEAT, EDate=GETDATE() WHERE DID=@DID
+	
+	
+END
+GO
+/****** Object:  StoredProcedure [dbo].[DIVMST_SELECT_BYID]    Script Date: 08/25/2019 11:50:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[DIVMST_SELECT_BYID]
+	
+	@DID AS INT
+AS
+BEGIN
+	
+	SELECT * FROM DivMst WHERE DID=@DID
+	
+	
+END
+GO
+/****** Object:  StoredProcedure [dbo].[DIVMST_SELECT_BY_STD]    Script Date: 08/25/2019 11:50:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[DIVMST_SELECT_BY_STD]
+	@STD AS NVARCHAR(256)
+AS
+BEGIN
+	
+	SELECT * FROM DivMst WHERE StdName=@STD
+	
+	
+END
+GO
+/****** Object:  StoredProcedure [dbo].[DIVMST_SELECT]    Script Date: 08/25/2019 11:50:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[DIVMST_SELECT]
+	
+AS
+BEGIN
+	
+	SELECT * FROM DivMst
+	
+	
+END
+GO
+/****** Object:  StoredProcedure [dbo].[DivMst_INSERT]    Script Date: 08/25/2019 11:50:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create PROCEDURE [dbo].[DivMst_INSERT]
+	
+	@DIVNAME AS NVARCHAR(256),
+	@STDNAME AS NVARCHAR(256),
+	@SEAT AS INT
+	
+AS
+BEGIN
+	
+	INSERT INTO DivMst VALUES(@DIVNAME,@STDNAME,@SEAT,GETDATE())
+	
+	
+END
+GO
+/****** Object:  StoredProcedure [dbo].[DivMst_DELETE]    Script Date: 08/25/2019 11:50:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[DivMst_DELETE]
+	
+	@DID AS INT
+AS
+BEGIN
+	
+DELETE FROM DivMst WHERE DID=@DID
+	
+	
+END
+GO
+/****** Object:  StoredProcedure [dbo].[Complainmst_UPDATE_Reply]    Script Date: 08/25/2019 11:50:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create PROCEDURE [dbo].[Complainmst_UPDATE_Reply]
+	
+	@CID AS INT,
+	@replay AS Nvarchar(256)
+	
+	
+AS
+BEGIN
+	
+UPDATE Complainmst SET Reply=@replay,Edate=GETDATE() where CID=@CID 
+	
+	
+END
+GO
+/****** Object:  StoredProcedure [dbo].[Complainmst_UPDATE]    Script Date: 08/25/2019 11:50:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[Complainmst_UPDATE]
+	
+	@CID AS INT,
+	@rollno AS NVARCHAR(256),
+	@name AS NVARCHAR(256),
+	@subject AS Nvarchar(256),
+	@message AS Nvarchar(256),
+	@replay AS Nvarchar(256)
+	
+	
+AS
+BEGIN
+	
+UPDATE Complainmst SET Rollno=@rollno,Name=@name,Subject=@subject,Message=@message,Reply=@replay,Edate=GETDATE() where CID=@CID 
+	
+	
+END
+GO
+/****** Object:  StoredProcedure [dbo].[Complainmst_SELECT_FOr_Teacher]    Script Date: 08/25/2019 11:50:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[Complainmst_SELECT_FOr_Teacher]
+	@rno as nvarchar(200)
+AS
+BEGIN
+	
+	SELECT * FROM Complainmst where Rollno like @rno order by CID desc
+	
+	
+END
+GO
+/****** Object:  StoredProcedure [dbo].[Complainmst_SELECT_BYID]    Script Date: 08/25/2019 11:50:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+Create PROCEDURE [dbo].[Complainmst_SELECT_BYID]
+	
+	@CID AS INT
+AS
+BEGIN
+	
+	SELECT * FROM Complainmst WHERE CID=@CID
+	
+	
+END
+GO
+/****** Object:  StoredProcedure [dbo].[Complainmst_SELECT_BY_ROLLNO]    Script Date: 08/25/2019 11:50:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create PROCEDURE [dbo].[Complainmst_SELECT_BY_ROLLNO]
+	
+	@roll as nvarchar(256)
+	
+	AS
+BEGIN
+	
+	SELECT * FROM Complainmst WHERE Rollno=@roll
+	
+END
+GO
+/****** Object:  StoredProcedure [dbo].[Complainmst_SELECT]    Script Date: 08/25/2019 11:50:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+Create PROCEDURE [dbo].[Complainmst_SELECT]
+	
+AS
+BEGIN
+	
+	SELECT * FROM Complainmst
+	
+	
+END
+GO
+/****** Object:  StoredProcedure [dbo].[Complainmst_INSERT]    Script Date: 08/25/2019 11:50:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+Create PROCEDURE [dbo].[Complainmst_INSERT]
+	
+	@rollno AS NVARCHAR(256),
+	@name AS NVARCHAR(256),
+	@subject AS NVARCHAR(256),
+	@message AS NVARCHAR(256),
+	@replay AS NVARCHAR(256)
+	
+	
+	
+AS
+BEGIN
+	
+	INSERT INTO Complainmst VALUES(@rollno,@name,@subject,@message,@replay,GETDATE())
+	
+	
+END
+GO
+/****** Object:  StoredProcedure [dbo].[Complainmst_DELETE]    Script Date: 08/25/2019 11:50:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create PROCEDURE [dbo].[Complainmst_DELETE]
+	
+	@CID AS INT
+AS
+BEGIN
+	
+DELETE FROM Complainmst WHERE CID=@CID
+	
+	
+END
+GO
+/****** Object:  StoredProcedure [dbo].[Attendancemst_UPDATE]    Script Date: 08/25/2019 11:50:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create PROCEDURE [dbo].[Attendancemst_UPDATE]
+	
+	@AID AS INT,
+	@rollno AS NVARCHAR(256),
+	@name AS NVARCHAR(256),
+	@date AS datetime,
+	@status as nvarchar(256),
+	@staffname as nvarchar(256),
+	@edate as datetime
+AS
+BEGIN
+	
+UPDATE Attendancemst SET Rollno=@rollno,Name=@name,Date=@date,Status=@status,Staffname=@staffname, EDate=GETDATE() WHERE AID=@AID
+	
+	
+END
+GO
+/****** Object:  StoredProcedure [dbo].[Attendancemst_SELECT_Report]    Script Date: 08/25/2019 11:50:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create PROCEDURE [dbo].[Attendancemst_SELECT_Report]
+	
+	@rollno as nvarchar(256),
+	@date as nvarchar(500)
+AS
+BEGIN
+	
+	SELECT * FROM Attendancemst where Rollno like @rollno and Date=@date
+	
+	
+END
+GO
+/****** Object:  StoredProcedure [dbo].[Attendancemst_SELECT_BYID]    Script Date: 08/25/2019 11:50:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create PROCEDURE [dbo].[Attendancemst_SELECT_BYID]
+	
+	@AID AS INT
+AS
+BEGIN
+	
+	SELECT * FROM Attendancemst WHERE AID=@AID
+	
+	
+END
+GO
+/****** Object:  StoredProcedure [dbo].[Attendancemst_SELECT_BY_ROLLNO_month]    Script Date: 08/25/2019 11:50:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[Attendancemst_SELECT_BY_ROLLNO_month]
+	
+	@rollno as nvarchar(256),
+	@month as nvarchar(256)
+	
+AS
+BEGIN
+	
+	SELECT * FROM Attendancemst where Rollno = @rollno and Date like @month
+	
+	--select CONVERT(nvarchar, EDate)  from Attendancemst
+	
+	
+END
+GO
+/****** Object:  StoredProcedure [dbo].[Attendancemst_SELECT_BY_ROLLNO_and_STATUS]    Script Date: 08/25/2019 11:50:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create PROCEDURE [dbo].[Attendancemst_SELECT_BY_ROLLNO_and_STATUS]
+	
+	@rollno as nvarchar(256),
+	@status as nvarchar(256)
+	
+AS
+BEGIN
+	
+	SELECT * FROM Attendancemst where Rollno = @rollno  and Status=@status
+	
+	
+END
+GO
+/****** Object:  StoredProcedure [dbo].[Attendancemst_SELECT_BY_ROLLNO]    Script Date: 08/25/2019 11:50:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create PROCEDURE [dbo].[Attendancemst_SELECT_BY_ROLLNO]
+	
+	@rollno as nvarchar(256)
+	
+AS
+BEGIN
+	
+	SELECT * FROM Attendancemst where Rollno = @rollno 
+	
+	
+END
+GO
+/****** Object:  StoredProcedure [dbo].[Attendancemst_SELECT_Allready_Saved]    Script Date: 08/25/2019 11:50:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create PROCEDURE [dbo].[Attendancemst_SELECT_Allready_Saved]
+	
+	@rollno as nvarchar(256),
+	@date as nvarchar(500)
+AS
+BEGIN
+	
+	SELECT * FROM Attendancemst where Rollno=@rollno and Date=@date
+	
+	
+END
+GO
+/****** Object:  StoredProcedure [dbo].[Attendancemst_SELECT]    Script Date: 08/25/2019 11:50:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create PROCEDURE [dbo].[Attendancemst_SELECT]
+	
+AS
+BEGIN
+	
+	SELECT * FROM Attendancemst
+	
+	
+END
+GO
+/****** Object:  StoredProcedure [dbo].[Attendancemst_INSERT]    Script Date: 08/25/2019 11:50:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[Attendancemst_INSERT]
+	
+	@rollno AS NVARCHAR(256),
+	@name AS NVARCHAR(256),
+	@date AS nvarchar(500),
+	@status as nvarchar(256),
+	@staffname as nvarchar(256)
+	
+	
+AS
+BEGIN
+	
+	INSERT INTO Attendancemst VALUES(@rollno,@name,@date,@status,@staffname,GETDATE())
+	
+	
+END
+GO
+/****** Object:  StoredProcedure [dbo].[Attendancemst_DELETE]    Script Date: 08/25/2019 11:50:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create PROCEDURE [dbo].[Attendancemst_DELETE]
+	
+	@AID AS INT
+AS
+BEGIN
+	
+DELETE FROM Attendancemst WHERE AID=@AID
+	
+	
+END
+GO
